@@ -1,0 +1,39 @@
+{
+  "name": "minion",
+  "author": "Matthew W. Jackson <mwj8410@gmail.com>",
+  "private": false,
+  "version": "0.0.1",
+  "description": "A seed project for a variety of web applications",
+  "keywords": [],
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "es6-plato": "^1.0.14",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1",
+    "mocha": "^4.0.1",
+    "newman": "^3.6.0",
+    "nyc": "^11.1.0",
+    "sinon": "^2.1.0"
+  },
+  "engines": {
+    "node": "9.1.0",
+    "npm": "5.3.0"
+  },
+  "scripts": {
+    "start": "node ./api/api.js",
+    "lint": "npm run lint:js",
+    "lint:js": "eslint ./api",
+    "start:example": "node ./exampleProject/example.js ",
+    "test": "npm run test:unit && npm run lint && echo '✔  Your code looks good.'",
+    "test:unit": "nyc --reporter=lcov mocha test/api.unit.config.js --timeout 30000 && nyc report",
+    "test:e2e": "node ./tests/api.e2e.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mwj8410/Plinth.git"
+  }
+}
