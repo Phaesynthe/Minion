@@ -6,7 +6,11 @@
   "description": "A seed project for a variety of web applications",
   "keywords": [],
   "dependencies": {
-
+    "@phaesynthe/object-helpers": "git+https://github.com/Phaesynthe/object-helpers.git",
+    "@phaesynthe/pherr": "*",
+    "@phaesynthe/phlog": "*",
+    "@phaesynthe/plinth": "*",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -17,19 +21,21 @@
     "mocha": "^4.0.1",
     "newman": "^3.6.0",
     "nyc": "^11.1.0",
-    "sinon": "^2.1.0"
+    "sinon": "^2.1.0",
+    "supertest": "^3.0.0"
   },
   "engines": {
     "node": "9.1.0",
     "npm": "5.3.0"
   },
   "scripts": {
-    "start": "node ./api/api.js",
+    "build": "plinth generate",
+    "start": "node ./app/minion.js",
     "lint": "npm run lint:js",
     "lint:js": "eslint ./api",
     "start:example": "node ./exampleProject/example.js ",
     "test": "npm run test:unit && npm run lint && echo '✔  Your code looks good.'",
-    "test:unit": "nyc --reporter=lcov mocha test/api.unit.config.js --timeout 30000 && nyc report",
+    "test:unit": "nyc --reporter=lcov mocha test/**/*.spec.js --timeout 30000 && nyc report",
     "test:e2e": "node ./tests/api.e2e.config.js"
   },
   "repository": {
